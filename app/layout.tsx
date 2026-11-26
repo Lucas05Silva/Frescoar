@@ -17,7 +17,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const TITLE = "FrescoAR — Links";
+const TITLE = "FrescoAR";
 const DESCRIPTION =
   "Instalação, manutenção e limpeza de ar-condicionado em Londrina — PR. Fale conosco pelo WhatsApp!";
 

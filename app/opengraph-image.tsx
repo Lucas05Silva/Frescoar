@@ -18,7 +18,7 @@ export default async function Image() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "radial-gradient(circle at 50% 30%, #F7F5F0 0%, #FFFFFF 75%)",
+        background: "radial-gradient(circle at 50% 30%, #EDEBE6 0%, #E8E4DD 70%)",
       }}
     >
       <div
@@ -64,7 +64,7 @@ export default async function Image() {
               fontSize: 26,
             }}
           >
-            Londrina — PR · (43) 99608-4754
+            Londrina — PR
           </div>
         </div>
       </div>

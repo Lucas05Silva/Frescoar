@@ -12,8 +12,6 @@ export type LinkItem = {
 };
 
 export const HANDLE = "@frescoarss";
-export const PHONE_DISPLAY = "(43) 99608-4754";
-export const PHONE_TEL = "tel:+5543996084754";
 export const CITY = "Londrina — PR";
 export const INSTAGRAM_URL = "https://www.instagram.com/frescoarss/";
 

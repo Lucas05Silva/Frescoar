@@ -1,7 +1,7 @@
 # MKlink · FrescoAR
 
 Link-in-bio da **FrescoAR**: instalação, manutenção e limpeza de ar-condicionado em Londrina — PR.
-Direção visual "Clean Frost": fundo branco, painel off-white flutuante, botões navy sólidos com barra accent lateral.
+Direção visual "Clean Frost": fundo bege acinzentado (#E8E4DD), painel off-white flutuante, botões navy sólidos com barra accent lateral.
 
 ## Stack
 
@@ -19,15 +19,14 @@ app/
   page.tsx              Panel > Hero + LinkList + ContactInfo + Footer
   globals.css           tokens, painel, botões, reduced-motion
   opengraph-image.tsx   imagem OG 1200×630 gerada no build
-  icon.png / apple-icon.png
 components/             Panel, Hero, LinkButton, LinkList, ContactInfo, Footer, Icons
-lib/links.ts            ÚNICA fonte de verdade: botões, telefone, cidade, URLs
+lib/links.ts            ÚNICA fonte de verdade: botões, cidade, URLs
 lib/motion.ts           transição de entrada compartilhada
 public/logo.jpg         logo (recorte quadrado do arquivo original)
 ```
 
 Para mudar um botão, texto ou URL, edite só `lib/links.ts`.
-Para trocar a logo, substitua `public/logo.jpg` por uma imagem **quadrada** com o wordmark centralizado (e regenere `app/icon.png` / `app/apple-icon.png`).
+Para trocar a logo, substitua `public/logo.jpg` por uma imagem **quadrada** com o wordmark centralizado.
 
 ## Desenvolvimento
 
