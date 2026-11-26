@@ -1,28 +1,28 @@
 # MKlink · FrescoAR
 
 Link-in-bio da **FrescoAR**: instalação, manutenção e limpeza de ar-condicionado em Londrina — PR.
-Direção visual "Arctic Tech": navy profundo, accent cyan, verde para ação, glassmorphism e grain.
+Direção visual "Clean Frost": fundo branco, painel off-white flutuante, botões navy sólidos com barra accent lateral.
 
 ## Stack
 
 - Next.js 16 (App Router, Turbopack) + TypeScript estrito
 - Tailwind CSS v4: tokens em `app/globals.css` (`:root` + `@theme`), sem `tailwind.config.ts`
-- Framer Motion (entrada em stagger) + keyframes CSS (idle), tudo desligado com `prefers-reduced-motion`
+- Framer Motion (entrada em stagger de 400ms; sem animação idle), desligado com `prefers-reduced-motion`
 - Lucide React (ícones) + `components/Icons.tsx` (Instagram, que o Lucide v1 não tem mais)
-- `next/font`: Big Shoulders (corte Display via `opsz` 72) + Instrument Sans
+- `next/font`: Outfit (display) + Plus Jakarta Sans (texto)
 
 ## Estrutura
 
 ```
 app/
   layout.tsx            metadata, OG, fontes, lang pt-BR, theme-color
-  page.tsx              Hero + LinkList + Footer, blobs de fundo
-  globals.css           tokens, grain, keyframes, estilos dos cards
+  page.tsx              Panel > Hero + LinkList + ContactInfo + Footer
+  globals.css           tokens, painel, botões, reduced-motion
   opengraph-image.tsx   imagem OG 1200×630 gerada no build
   icon.png / apple-icon.png
-components/             Hero, LinkButton, LinkList, Footer, Icons
-lib/links.ts            ÚNICA fonte de verdade dos botões, telefone e URLs
-lib/motion.ts           transições compartilhadas
+components/             Panel, Hero, LinkButton, LinkList, ContactInfo, Footer, Icons
+lib/links.ts            ÚNICA fonte de verdade: botões, telefone, cidade, URLs
+lib/motion.ts           transição de entrada compartilhada
 public/logo.jpg         logo (recorte quadrado do arquivo original)
 ```
 
@@ -51,5 +51,5 @@ npm start
 
 1. Em vercel.com, **Add New → Project** e importe o repositório `Lucas05Silva/Frescoar`.
 2. O framework é detectado como Next.js: não precisa mudar nada.
-3. Opcional: defina `NEXT_PUBLIC_SITE_URL` com a URL final (ex.: `https://frescoar.vercel.app`) para as URLs absolutas do Open Graph.
+3. Defina `NEXT_PUBLIC_SITE_URL` com a URL final (ex.: `https://frescoar.vercel.app`) para as URLs absolutas do Open Graph.
 4. Deploy. Cada push na `main` gera um novo deploy.

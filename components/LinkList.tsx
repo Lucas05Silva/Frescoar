@@ -11,20 +11,20 @@ export function LinkList() {
       <motion.div
         data-reveal
         aria-hidden
-        className="cyan-rule mx-auto mb-8 w-4/5 origin-center"
+        className="cyan-rule mx-auto my-6 w-3/5 [@media(max-height:700px)]:my-4"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={reveal(0.5, 0.9)}
+        transition={reveal(0.5)}
       />
 
-      <ul className="flex flex-col gap-[14px]">
+      <ul className="mx-auto flex max-w-[380px] flex-col gap-3">
         {links.map((item, i) => (
           <motion.li
             key={item.href}
             data-reveal
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={reveal(0.6 + i * 0.1)}
+            transition={reveal(0.55 + i * 0.1)}
           >
             <LinkButton item={item} />
           </motion.li>

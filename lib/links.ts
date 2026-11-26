@@ -6,29 +6,28 @@ export type LinkItem = {
   subtitle: string;
   href: string;
   icon: IconComponent;
-  /** classes Tailwind do gradiente do ícone */
-  gradient: string;
-  /** cor do glow no hover */
-  glowColor: string;
+  /** cor (ou gradiente) da barra lateral de 3px */
+  accentColor: string;
   external: boolean;
 };
 
+export const HANDLE = "@frescoarss";
 export const PHONE_DISPLAY = "(43) 99608-4754";
 export const PHONE_TEL = "tel:+5543996084754";
+export const CITY = "Londrina — PR";
 export const INSTAGRAM_URL = "https://www.instagram.com/frescoarss/";
 
 const WHATSAPP_TEXT = "Olá! Vim pelo link da bio, gostaria de mais informações.";
 export const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=5543996084754&text=${encodeURIComponent(WHATSAPP_TEXT)}`;
 
-/** Única fonte de verdade dos botões — a ordem aqui é a ordem na página. */
+/** Única fonte de verdade dos botões: a ordem aqui é a ordem na página. */
 export const links: LinkItem[] = [
   {
     label: "Fale pelo WhatsApp",
     subtitle: "Orçamento rápido e sem compromisso",
     href: WHATSAPP_URL,
     icon: MessageCircle,
-    gradient: "from-green to-green-dark",
-    glowColor: "var(--green-glow)",
+    accentColor: "var(--green)",
     external: true,
   },
   {
@@ -36,8 +35,7 @@ export const links: LinkItem[] = [
     subtitle: "Acompanhe nosso trabalho",
     href: INSTAGRAM_URL,
     icon: InstagramIcon,
-    gradient: "from-insta to-insta-dark",
-    glowColor: "var(--insta-glow)",
+    accentColor: "linear-gradient(180deg, var(--insta), var(--insta-dark))",
     external: true,
   },
 ];

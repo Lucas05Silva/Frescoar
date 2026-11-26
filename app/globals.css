@@ -2,34 +2,46 @@
 
 /* ───────────────────────── Tokens da marca ───────────────────────── */
 :root {
+  /* Fundo e estrutura */
+  --bg-page: #ffffff;
+  --bg-panel: #f7f5f0;
+  --bg-panel-alt: #f0ede6;
+
+  /* Azuis */
   --navy: #0b2559;
   --navy-deep: #061434;
   --navy-mid: #0e3070;
   --cyan: #00b4d8;
   --cyan-light: #64d2f0;
-  --cyan-glow: rgba(0, 180, 216, 0.15);
+
+  /* Verde */
   --green: #6abf4b;
   --green-dark: #509b37;
-  --green-glow: rgba(106, 191, 75, 0.12);
-  --white: #ffffff;
-  --white-90: rgba(255, 255, 255, 0.9);
-  --white-70: rgba(255, 255, 255, 0.7);
-  --white-20: rgba(255, 255, 255, 0.12);
-  --ink: #e8edf5;
-  --ink-soft: #8b9cc0;
 
+  /* Instagram (barra accent) */
   --insta: #e84393;
   --insta-dark: #c13584;
-  --insta-glow: rgba(232, 67, 147, 0.12);
 
-  /* sombras com tint navy (nunca cinza) */
-  --shadow-navy: rgba(3, 10, 30, 0.45);
-  --shadow-navy-strong: rgba(3, 10, 30, 0.6);
+  /* Textos. ink-soft e ink-muted foram escurecidos em relação ao briefing
+     (#6B7280 / #9CA3AF) para passar WCAG AA (≥ 4.5:1) sobre o painel #F7F5F0. */
+  --ink: #1a1d26;
+  --ink-soft: #5b6170;
+  --ink-muted: #6a707c;
+
+  /* Sombras e bordas: sempre com tint navy */
+  --shadow-card: rgba(11, 37, 89, 0.08);
+  --shadow-panel: rgba(11, 37, 89, 0.06);
+  --shadow-hover: rgba(11, 37, 89, 0.15);
+  --border-soft: rgba(11, 37, 89, 0.08);
+  --tint-soft: rgba(11, 37, 89, 0.04);
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme inline {
+  --color-page: var(--bg-page);
+  --color-panel: var(--bg-panel);
+  --color-panel-alt: var(--bg-panel-alt);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-navy-mid: var(--navy-mid);
@@ -39,174 +51,124 @@
   --color-green-dark: var(--green-dark);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-white-90: var(--white-90);
-  --color-white-70: var(--white-70);
-  --color-insta: var(--insta);
-  --color-insta-dark: var(--insta-dark);
+  --color-ink-muted: var(--ink-muted);
+  --color-tint-soft: var(--tint-soft);
 
-  --font-display: var(--font-big-shoulders);
-  --font-sans: var(--font-instrument-sans);
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-jakarta);
 }
 
 /* ───────────────────────── Base ───────────────────────── */
 html {
-  background: var(--navy-deep);
-  color-scheme: dark;
+  background: var(--bg-page);
+  color-scheme: light;
 }
 
 body {
   min-height: 100dvh;
   color: var(--ink);
-  font-family: var(--font-instrument-sans), sans-serif;
-  background:
-    radial-gradient(120% 50% at 50% 100%, rgba(14, 48, 112, 0.5), transparent 70%),
-    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-deep) 100%);
-  background-attachment: fixed;
+  font-family: var(--font-jakarta), sans-serif;
+  background: radial-gradient(circle at 50% 30%, var(--bg-panel) 0%, var(--bg-page) 70%);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* Grain / noise sobre tudo */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.font-display {
-  font-variation-settings: "opsz" 72;
-}
-
 ::selection {
-  background: var(--cyan);
-  color: var(--navy-deep);
+  background: var(--navy);
+  color: #fff;
 }
 
-/* ───────────────────────── Header ───────────────────────── */
-.hero-shell {
-  background:
-    radial-gradient(55% 60% at 88% 0%, rgba(0, 180, 216, 0.2), transparent 70%),
-    radial-gradient(45% 45% at 5% 95%, var(--green-glow), transparent 70%),
-    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-mid) 100%);
-  clip-path: url(#hero-curve);
+/* ───────────────────────── Painel ───────────────────────── */
+.panel {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
 }
-
-/* Blobs decorativos fixos */
-.blob {
-  position: fixed;
-  border-radius: 9999px;
-  pointer-events: none;
-  z-index: 0;
+/* Mobile: painel em tela cheia, padding um pouco menor para caber sem scroll */
+@media (max-width: 440px) {
+  .panel {
+    padding: 40px 24px 24px;
+  }
 }
-.blob-cyan {
-  top: -80px;
-  right: -90px;
-  width: 300px;
-  height: 300px;
-  background: var(--cyan);
-  filter: blur(120px);
-  opacity: 0.08;
-  animation: drift 8s ease-in-out infinite;
+@media (max-width: 359px) {
+  .panel {
+    padding: 32px 16px 20px;
+  }
 }
-.blob-green {
-  bottom: -60px;
-  left: -70px;
-  width: 220px;
-  height: 220px;
-  background: var(--green);
-  filter: blur(100px);
-  opacity: 0.06;
-  animation: drift 8s ease-in-out infinite reverse;
+@media (max-width: 440px) and (max-height: 700px) {
+  .panel {
+    padding-top: 24px;
+  }
 }
-
-/* Separador cyan com fade nas bordas */
-.cyan-rule {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan) 50%, transparent);
-  opacity: 0.6;
+/* Desktop: painel flutuante centralizado */
+@media (min-width: 441px) {
+  body {
+    display: flex;
+    padding: 24px 0;
+  }
+  .panel {
+    min-height: auto;
+    margin: auto;
+    border-radius: 24px;
+    box-shadow: 0 1px 60px var(--shadow-panel);
+  }
 }
 
 /* ───────────────────────── Logo ───────────────────────── */
-.logo-float {
-  animation: float 3s ease-in-out infinite;
-}
 .logo-ring {
-  box-shadow:
-    0 0 0 3px var(--cyan),
-    0 0 30px rgba(0, 180, 216, 0.2),
-    0 12px 30px var(--shadow-navy-strong);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 24px var(--shadow-card);
 }
 .logo-halo {
-  border: 1px solid var(--cyan);
-  animation: halo 3s ease-in-out infinite;
+  border: 1px solid rgba(0, 180, 216, 0.15);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.08);
 }
-.logo-orbit {
-  border: 1px dashed rgba(100, 210, 240, 0.3);
-  animation: spin 40s linear infinite;
+
+/* ───────────────────────── Separador ───────────────────────── */
+.cyan-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.2), transparent);
 }
 
 /* ───────────────────────── Botões ───────────────────────── */
 .link-card {
-  --glow: var(--cyan-glow);
+  --accent: var(--green);
   position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
-  min-height: 72px;
-  padding: 18px 22px;
-  border-radius: 16px;
-  background: rgba(11, 37, 89, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(0, 180, 216, 0.25);
+  gap: 14px;
+  min-height: 68px;
+  padding: 16px 44px 16px 20px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #fff;
   box-shadow:
-    0 4px 20px var(--shadow-navy),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: all 300ms var(--ease);
+    0 2px 12px var(--shadow-card),
+    0 1px 3px var(--shadow-card);
+  transition: all 250ms var(--ease);
   overflow: hidden;
-  isolation: isolate;
 }
-@media (max-width: 359px) {
-  .link-card {
-    gap: 14px;
-    padding: 16px 16px;
-  }
-}
-/* reflexo frio que atravessa o card no hover */
+/* barra accent de 3px na borda esquerda */
 .link-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    110deg,
-    transparent 20%,
-    rgba(100, 210, 240, 0.1) 45%,
-    transparent 70%
-  );
-  transform: translateX(-110%);
-  transition: transform 700ms var(--ease);
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
 }
 .link-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(0, 180, 216, 0.5);
-  box-shadow:
-    0 14px 34px var(--shadow-navy-strong),
-    0 0 28px var(--glow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-.link-card:hover::before {
-  transform: translateX(110%);
+  transform: translateY(-2px);
+  background: var(--navy-mid);
+  box-shadow: 0 6px 24px var(--shadow-hover);
 }
 .link-card:active {
   transform: translateY(0) scale(0.98);
-  box-shadow:
-    0 2px 10px var(--shadow-navy),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 6px var(--shadow-card);
 }
 .link-card:focus-visible,
 .focus-ring:focus-visible {
@@ -214,54 +176,16 @@ body::after {
   outline-offset: 2px;
 }
 .link-card .chevron {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  translate: 0 -50%;
   opacity: 0.4;
-  transition: all 300ms var(--ease);
+  transition: all 250ms var(--ease);
 }
 .link-card:hover .chevron {
-  opacity: 0.85;
+  opacity: 0.75;
   transform: translateX(4px);
-}
-.link-card .icon-tile {
-  transition: transform 300ms var(--ease);
-}
-.link-card:hover .icon-tile {
-  transform: rotate(-6deg) scale(1.05);
-}
-
-/* ───────────────────────── Keyframes ───────────────────────── */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(-3px);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-@keyframes halo {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.04);
-  }
-}
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-10px, 10px);
-  }
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* ───────────────────── Reduced motion ───────────────────── */
@@ -275,10 +199,10 @@ body::after {
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
-    filter: none !important;
   }
   .link-card:hover,
-  .link-card:active {
+  .link-card:active,
+  .link-card:hover .chevron {
     transform: none;
   }
 }

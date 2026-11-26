@@ -2,8 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "FrescoAR — Instalação, manutenção e limpeza de ar-condicionado em Londrina — PR";
+export const alt = "FrescoAR: instalação, manutenção e limpeza de ar-condicionado em Londrina — PR";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -18,43 +17,55 @@ export default async function Image() {
         height: "100%",
         display: "flex",
         alignItems: "center",
-        gap: 64,
-        padding: "0 96px",
-        color: "#E8EDF5",
-        background:
-          "radial-gradient(circle at 90% 0%, rgba(0,180,216,0.28), transparent 45%), radial-gradient(circle at 0% 100%, rgba(106,191,75,0.16), transparent 40%), linear-gradient(180deg, #061434 0%, #0B2559 100%)",
+        justifyContent: "center",
+        background: "radial-gradient(circle at 50% 30%, #F7F5F0 0%, #FFFFFF 75%)",
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={logoSrc}
-        width={320}
-        height={320}
-        alt=""
+      <div
         style={{
-          borderRadius: 9999,
-          border: "6px solid #00B4D8",
-          boxShadow: "0 0 60px rgba(0,180,216,0.35)",
+          display: "flex",
+          alignItems: "center",
+          gap: 56,
+          padding: "56px 72px",
+          borderRadius: 40,
+          background: "#F7F5F0",
+          boxShadow: "0 2px 80px rgba(11,37,89,0.10)",
         }}
-      />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", fontSize: 112, fontWeight: 800, letterSpacing: 4 }}>
-          <span style={{ color: "#FFFFFF" }}>FRESCO</span>
-          <span style={{ color: "#6ABF4B" }}>AR</span>
-        </div>
-        <div
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={logoSrc}
+          width={260}
+          height={260}
+          alt=""
           style={{
-            marginTop: 12,
-            fontSize: 24,
-            letterSpacing: 3,
-            color: "#64D2F0",
-            textTransform: "uppercase",
+            borderRadius: 9999,
+            border: "8px solid #FFFFFF",
+            boxShadow: "0 6px 36px rgba(11,37,89,0.12)",
           }}
-        >
-          Instalação · Manutenção · Limpeza
-        </div>
-        <div style={{ marginTop: 36, fontSize: 28, color: "#8B9CC0" }}>
-          Londrina — PR · (43) 99608-4754
+        />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", fontSize: 104, fontWeight: 700 }}>
+            <span style={{ color: "#0B2559" }}>Fresco</span>
+            <span style={{ color: "#6ABF4B", marginLeft: -18 }}>AR</span>
+          </div>
+          <div style={{ marginTop: 8, fontSize: 22, letterSpacing: 5, color: "#5B6170" }}>
+            INSTALAÇÃO · MANUTENÇÃO · LIMPEZA
+          </div>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 32,
+              padding: "14px 24px",
+              borderRadius: 14,
+              background: "#0B2559",
+              borderLeft: "5px solid #6ABF4B",
+              color: "#FFFFFF",
+              fontSize: 26,
+            }}
+          >
+            Londrina — PR · (43) 99608-4754
+          </div>
         </div>
       </div>
     </div>,

@@ -1,20 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders, Instrument_Sans } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-/* "Big Shoulders Display" hoje é servida pelo Google como "Big Shoulders" com eixo opsz;
-   o corte Display é ativado via font-variation-settings "opsz" 72 em .font-display */
-const bigShoulders = Big_Shoulders({
-  variable: "--font-big-shoulders",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  axes: ["opsz"],
+  weight: ["600", "700", "800"],
   display: "swap",
-  fallback: ["Impact", "Arial Narrow", "sans-serif"],
-  adjustFontFallback: false,
 });
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
@@ -45,17 +41,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B2559",
-  colorScheme: "dark",
+  themeColor: "#F7F5F0",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${bigShoulders.variable} ${instrumentSans.variable}`}>
+    <html lang="pt-BR" className={`${outfit.variable} ${jakarta.variable}`}>
       <head>
         {/* Sem JS: mostra tudo que as animações de entrada esconderiam */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
       <body>{children}</body>
