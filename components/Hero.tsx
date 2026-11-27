@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { HANDLE } from "@/lib/links";
 import { reveal } from "@/lib/motion";
 
 export function Hero() {
@@ -52,12 +51,12 @@ export function Hero() {
 
       <motion.p
         data-reveal
-        className="mt-4 rounded-[20px] bg-tint-soft px-4 py-1.5 text-[13px] text-ink-muted max-[359px]:px-3 max-[359px]:text-[12px]"
+        className="mt-4 max-w-[290px] text-[14px] leading-relaxed text-balance text-ink-soft max-[359px]:text-[13px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={reveal(0.4)}
       >
-        {HANDLE} · residencial e comercial
+        Conforto e qualidade do ar para sua casa e empresa.
       </motion.p>
     </header>
   );

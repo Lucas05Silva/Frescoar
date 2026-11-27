@@ -11,7 +11,6 @@ export type LinkItem = {
   external: boolean;
 };
 
-export const HANDLE = "@frescoarss";
 export const CITY = "Londrina — PR";
 export const INSTAGRAM_URL = "https://www.instagram.com/frescoarss/";
 
