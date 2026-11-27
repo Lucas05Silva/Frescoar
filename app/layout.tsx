@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   display: "swap",
@@ -47,7 +47,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${jakarta.variable}`}>
+    <html lang="pt-BR" className={`${sora.variable} ${jakarta.variable}`}>
       <head>
         {/* Sem JS: mostra tudo que as animações de entrada esconderiam */}
         <noscript>

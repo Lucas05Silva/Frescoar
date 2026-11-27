@@ -9,7 +9,7 @@ Direção visual "Clean Frost": fundo bege acinzentado (#E8E4DD), painel off-whi
 - Tailwind CSS v4: tokens em `app/globals.css` (`:root` + `@theme`), sem `tailwind.config.ts`
 - Framer Motion (entrada em stagger de 400ms; sem animação idle), desligado com `prefers-reduced-motion`
 - Lucide React (ícones) + `components/Icons.tsx` (Instagram, que o Lucide v1 não tem mais)
-- `next/font`: Outfit (display) + Plus Jakarta Sans (texto)
+- `next/font`: Sora (display) + Plus Jakarta Sans (texto)
 
 ## Estrutura
 

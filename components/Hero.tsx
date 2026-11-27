@@ -31,13 +31,13 @@ export function Hero() {
 
       <motion.h1
         data-reveal
-        className="mt-6 [@media(max-height:700px)]:mt-5 font-display text-[30px] leading-none font-bold tracking-[-0.01em] whitespace-nowrap"
+        className="mt-6 [@media(max-height:700px)]:mt-5 font-display text-[30px] leading-none font-bold tracking-[-0.035em] whitespace-nowrap"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={reveal(0.25)}
       >
         <span className="text-navy">Fresco</span>
-        <span className="text-green">AR</span>
+        <span className="-ml-[0.02em] text-green">AR</span>
       </motion.h1>
 
       <motion.p
