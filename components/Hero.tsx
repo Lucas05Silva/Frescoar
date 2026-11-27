@@ -51,7 +51,7 @@ export function Hero() {
 
       <motion.p
         data-reveal
-        className="mt-4 max-w-[290px] text-[14px] leading-relaxed text-balance text-ink-soft max-[359px]:text-[13px]"
+        className="mt-4 text-[14px] leading-relaxed whitespace-nowrap text-ink-soft max-[420px]:text-[13px] max-[379px]:text-[11.75px] max-[359px]:text-[11px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={reveal(0.4)}
